@@ -1,0 +1,97 @@
+<div class="conatiner full-screen-container d-flex align-items-center" *ngIf="!signupDone">
+  <div class="signup-box">
+      <h1>Commenting System</h1>
+    <form [formGroup]="signupForm" (submit)="signUp()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Username</label>
+        <input type="email" class="form-control" placeholder="Enter User name" formControlName="userName">
+      </div>
+      <button class="custom-button submit-button d-block" type="submit">Sign up</button>
+    </form>
+  </div>
+</div>
+
+<div class="container custom-wrapper" *ngIf="signupDone">
+  <h1>Commenting System</h1>
+  <div class="blog-content">
+    This Commenting System is made with :
+    <ul class="">
+      <li> 1) HTML5</li>
+      <li> 2) CSS</li>
+      <li> 3) BOOTSTRAP4</li>
+      <li> 4) ANGULAR CLI</li>
+      <li> 5) JSON</li>
+    </ul>
+    <p>Comment are taken as input and are displayed as soon as they have been posted. </p>
+    <p>Data in form of JSON has been used to stored the details of the commnets. </p>
+    <strong> Few features: </strong>
+    <p class="">Only the user that has commented the comment can delete it.</p>
+    <p class="">Reply functionality has been implemented.</p>
+    <p class="">With power of local storage particular user view from will remain same even on refresh.</p>
+    <p class="">Like functionality has also been implemented user can like the comment with numbers of likes in display.</p>
+    <strong>More features that can be implemented:</strong>
+    <p>Maintaine the single view for all the users with better local storage use.</p>
+    <p>Edit of alreday commnted text.</p>
+  </div>
+  <div class="custom-container">
+    <div class="comment-box-wrapper">
+      <div class="comment-row row text-left">
+        <div class="media col-12" *ngFor="let userComment of comments; let i = index">
+          <img class="user-image align-self-start" src="assets/images/user_genric.png" alt="Generic placeholder image">
+          <div class="media-body comment-text-wrapper">
+            <div class="comment-icon delete float-right" *ngIf="userInfo[0].userName === userComment.userName" (click)="delete(i)">
+              <img class="align-self-start" src="assets/images/delete-icon.png" alt="Generic placeholder image">
+            </div>
+            <div class="comment-icon  reply float-right" (click)="replyForm(i)">
+              <img class="align-self-start" src="assets/images/reply-icon.png" alt="Generic placeholder image">
+            </div>
+            <div class="comment-icon  like float-right" [class.liked]="userComment.liked" (click)="liked(i)">
+              <img class="align-self-start" src="assets/images/like-icon.png" alt="Generic placeholder image">
+              <div class="like-number">{{userComment.like}}</div>
+            </div>
+            <h5 class="mt-0">{{userComment.userName}}</h5>
+            <p> {{userComment.comment}}</p>
+
+            <div class="reply-form" *ngIf="replyFormShow && replyIndex === i">
+              <div class="media col-12">
+                <img class="user-image align-self-start" src="assets/images/user_genric.png" alt="Generic placeholder image">
+                <div class="media-body">
+                  <form class="" [formGroup]="replyBox" (submit)="replyAdded(index)">
+                    <textarea class="w-100 comment-input" type="text" placeholder="Share your views..." formControlName="userReply" name="reply"></textarea>
+                    <button class="custom-button submit-button" type="submit">Comment</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="reply-wrapper" *ngIf="userComment.reply.length > 0">
+              <div class="reply-container media col-12" *ngFor="let reply of userComment.reply; let replyIndex = index">
+                <img class="user-image align-self-start" src="assets/images/user_genric.png" alt="Generic placeholder image">
+                <div class="media-body comment-text-wrapper">
+                  <div class="comment-icon delete float-right" *ngIf="userInfo[0].userName === reply.userName" (click)="deleteReply(i,replyIndex)">
+                    <img class="align-self-start" src="assets/images/delete-icon.png" alt="Generic placeholder image">
+                  </div>
+                  <div class="comment-icon  like float-right" [class.liked]="reply.liked" (click)="likedReply(i,replyIndex)">
+                    <img class="align-self-start" src="assets/images/like-icon.png" alt="Generic placeholder image">
+                    <div class="like-number">{{reply.like}}</div>
+                  </div>
+                  <h5 class="mt-0">{{reply.userName}}</h5>
+                  <p>{{reply.userReply}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="media">
+        <img class="user-image align-self-start" src="assets/images/user_genric.png" alt="Generic placeholder image">
+        <div class="media-body">
+          <form class="comment-text-wrapper" [formGroup]="commentBox" (submit)="addComment()">
+            <h5 class="mt-0">{{userInfo[0].userName}}</h5>
+            <textarea class="w-100 comment-input" type="text" placeholder="Share your views..." formControlName="comment" name="name"></textarea>
+            <button class="custom-button submit-button" type="submit">Comment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

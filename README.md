@@ -1,38 +1,28 @@
-# `ModeStreet front-end challenge` 
+# AppSliderCarousel
 
-This is our challenge for the front-end developer position at [@modestreet](https://github.com/ModeStreet).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
 
-You're probably already participating in our hiring process, but if you stumble here by accident, read the document to the end and if you are interested, you can start the process from here.
+## Development server
 
-## About the challenge
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-We'll give you some requirements that must be done and for which you'll be evaluated, but you're free to choose a solution method.
+## Code scaffolding
 
-What we expect to learn from you with this challenge:
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-- Your work style.
-- How you think and solve problems.
-- How you communicate.
+## Build
 
-What we expect that you learn from us:
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-- How we work as a team.
-- Have a close look at some of the problems we face daily.
+## Running unit tests
 
-## Next steps
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-1. Fork this repository to your personal account.
-2. Follow the instructions in the [`challenge`](/challenge.md) file.
-3. Solve the challenge in the best way you can.
-4. Send us a Pull Request with your solution.
+## Running end-to-end tests
 
-## Considerations
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
 
-- We won't limit your choice of tools or libraries. But make choices that suits your needs. There's no need to use a bazooka to kill an ant but the point of the challenge is to evaluate your skills.
-- Despite not having a time limit, we recommend that you don't spend more than **10 to 12 hours** working on this challenge.
-- Try to write the best code you possibly can. It will make our life easier when evaluating your solution. And remember: you'll have to explain it in person for us.
+## Further help
 
-## Doubts?
-
-Do you have in doubt related to the process? Open an [issue](https://github.com/ModeStreet/front-end-challenge-1/issues) and we'll be happy to help.
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
